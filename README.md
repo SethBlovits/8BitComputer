@@ -32,21 +32,82 @@ Assembly Commands
 |Reg C | $rC | 11 |
 
 ## Assembly Instruction Breakdown
-### add rs,rt,rd;
-Adds the value stored in rs to the value stored in rt, and stores the result in the general register rd.
-### sub rs,rt,rd;
-Subtracts the value stored in rs to the value stored in rt, and stores the result in the general register rd.
-### or rs,rt,rd;
-Perform bitwise or operation on the values stored in rs and rt, and stores the result in the general register rd.
-### and rs,rt,rd;
-Perform bitwise and operation on the values stored in rs and rt, and stores the result in the general register rd.
-### slt rs,rt,rd;
-If rs<rt then set rd to 1. If not the set rd to 0.
-### addi rs,rd,immediate
-Add an immediate value to the value stored in rs, then store the result in rd
-### subi rs,rd,immediate
-Subtract and immediate value from the value stored in rs, then store the result in rd.
-### load 
+#### ADD
+- Adds the value stored in rs to the value stored in rt, and stores the result in the general register rd.<br/>
+```
+add rs,rt,rd;
+```
+---
+#### SUB
+- Subtracts the value stored in rs to the value stored in rt, and stores the result in the general register rd.<br/>
+```
+sub rs,rt,rd;
+```
+---
+#### OR
+- Perform bitwise or operation on the values stored in rs and rt, and stores the result in the general register rd.<br/>
+```
+or rs,rt,rd;
+```
+---
+#### AND
+- Perform bitwise and operation on the values stored in rs and rt, and stores the result in the general register rd.<br/>
+```
+and rs,rt,rd;
+```
+---
+#### SLT
+- If rs<rt then set rd to 1. If not the set rd to 0. <br/>
+```
+slt rs,rt,rd;
+```
+---
+#### ADDI
+- Add an immediate value to the value stored in rs, then store the result in rd<br/>
+```
+addi rs,rd,immediate;
+```
+---
+#### SUBI
+- Subtract and immediate value from the value stored in rs, then store the result in rd.<br/>
+```
+subi rs,rd,immediate;
+```
+---
+#### LOAD
+- Read out the data stored in data memory into register rd. The address being accessed is found by adding rs and the immediate value together.<br/>
+```
+load rs,rd,immediate;
+```
+---
+#### STORE
+- Store the data in rd in data memory. The address being written to is found by adding rs and the immediate value together.<br/>
+```
+store rs,rd,immediate;
+```
+---
+#### BEQ
+- If the data in registers rs and rd are equal, then branch to the relative address designated by the immediate.<br/>
+```
+beq rs,rd,immediate;
+```
+#### JUMP
+- Jump to the memory address specified by the rs and rd registers. The 16 bit address is set by setting the bottom 8 bits to be the data in rs, and the top 8 bits to be the data in rd.<br/>
+```
+jump rs,rd; <br/>
+```
+---
+#### JUMPF
+- Jumpf allows you to jump to an instruction address of the start of a function. Due to space limitations, jumpf breaks down into 3 sub functions. The address represented by label is split into two 8 bit pieces, which are stored in rs and rd by two addi calls. Then a jump command is executed using these two registers.<br/>
+```
+jumpf rs,rd,label;
+```
+Boils down into:
+```
+addi $r0,rs,label[7:0];
+addi $r0,rd,label[15:8];
+jump rs,rd;
+```
 
 
 
