@@ -1,0 +1,20 @@
+@data
+z;
+y;
+x;
+
+@text
+#main
+addi $rC,$rB,7;
+add $rA,$rB,$rC;
+add $rC,$rC,$rC;
+store $r0,$rB,y;
+add $r0,$rC,$rB;
+beq $rB,$rC,main;
+
+#functionTest
+addi $rC,$rC,8;
+jumpf $rA,$rB,functionTest;
+
+
+
