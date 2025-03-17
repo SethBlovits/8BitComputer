@@ -124,6 +124,33 @@ Assembly Commands
 |beq|0101|X|110|
 |jump|0110|X|X|
 
+##Example Program
+```
+@data
+count;
+compare;
+
+@text
+#main
+addi $r0,$rC,205;
+store $r0,$r0,compare;
+store $r0,$r0,count;
+#while
+load $r0,$rA,count;
+beq $rA,$rC,done;
+addi $rA,$rA,1;
+store $r0,$rA,count;
+jumpf $rA,$rB,while;
+#done
+load $r0,$rA,count;
+addi $r0,$rB,207;
+subi $rB,$rB,54;
+slt $rB,$rA,$rC;
+store $r0,$rC,compare;
+#finish
+beq $r0,$r0,finish;
+```
+#### Computer Execution:
 
 
 
