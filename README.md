@@ -4,7 +4,8 @@
 
 
 This is the documentation for a single cycle 8 bit computer design implemented in Logisim Evolution with and Assembler written in C. It is based upon the design of the MIPS microprocessor in the textbook: 
-Harris D. M., Harris S. L. - Digital Design and Computer Architecture, 2nd Edition - 2012
+Harris D. M., Harris S. L. - Digital Design and Computer Architecture, 2nd Edition - 2012<br/>
+
 ## Hardware Breakdown
 The computer stores instruction memory and data memory separately. Instruction memory is implemented with ROM that has 16 address bits and 16 data bits, and global data memory is implented with RAM that has 8 address bits and 8 data bits. The instructions are comprised of 16 bit words. Depending on the type of instruction, the bits are broken up into chunks that instruct the computer components to perform various processes specific to the instruction.
 ##### R Type Instruction
