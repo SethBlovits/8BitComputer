@@ -18,7 +18,7 @@ The computer stores instruction memory and data memory separately. Instruction m
 [OPCODE][RS][RD][IMMEDIATE]
 [0000][00][00][00000000]
 ```
-Due to the space constraints, jumping to a new instruction address requires using multiple instructions. Instrution addresses are 16 bits, so 8 bits need to be loaded into two general purpose registers in advance of using a jump command, which will recombine the to 8 bit values inside the registers into a 16 bit address. This allows for absolute addressing over the entire 16 bit address space. The branch command does not do this however, and instead accepts an 8 bit number and can move the instruction conouter to a position relative to the current position. This means that you are limited to branching to an address that's within 8 bits of range.
+Due to the space constraints, jumping to a new instruction address requires using multiple instructions. Instruction addresses are 16 bits, so 8 bits need to be loaded into two general purpose registers in advance of using a jump command, which will then recombine the two 8 bit values inside the registers into a 16 bit address. This allows for absolute addressing over the entire 16 bit address space. The branch command does not do this however, and instead accepts an 8 bit number and can move the instruction counter to a position relative to the current position. This means that you are limited to branching to an address that's within 8 bits of range.
 
 ## Instruction Set
 This computer currently supports 12 different instructions. There are 3 general purpose registers that can be used, and one static register that holds the value 0.
@@ -124,7 +124,7 @@ Assembly Commands
 |beq|0101|X|110|
 |jump|0110|X|X|
 
-##Example Program
+## Example Program
 ```
 @data
 count;
@@ -152,5 +152,6 @@ beq $r0,$r0,finish;
 ```
 #### Computer Execution:
 
+![cpuGif](https://github.com/user-attachments/assets/fc2698b6-11fe-48a3-812e-3653929bf540)
 
 
