@@ -3,7 +3,7 @@
 <img width="711" alt="CpuScreenShot" src="https://github.com/user-attachments/assets/4cf6ac58-4649-4872-a3c6-9a5643605e23" />
 
 
-This is the documentation for a single cycle 8 bit computer design implemented in Logisim Evolution with and Assembler written in C. It is based upon the design of the MIPS microprocessor in the textbook: 
+This is the documentation for a single cycle 8 bit computer design implemented in Logisim Evolution with an Assembler written in C. It is based upon the design of the MIPS microprocessor in the textbook: 
 Harris D. M., Harris S. L. - Digital Design and Computer Architecture, 2nd Edition - 2012<br/>
 
 ## Hardware Breakdown
